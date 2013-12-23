@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <title>Andrew Millman</title>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/projects.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top ">
+    <div class="container">
+        <button type="button" id="nav-btn" class="navbar-toggle" data-type="open" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="icon-bar" style="
+                position: absolute;
+                top: 35px;
+                left: 17px;
+                "></span>
+                <span class="icon-bar" style="
+                position: absolute;
+                top: 31px;
+                "></span>
+                <span class="icon-bar" style="
+                position: absolute;
+                top: 31px;
+                left: 41px;
+                "></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Andrew Millman</a>
+
+        <div class="nav-collapse collapse bs-navbar-collapse" style="overflow: hidden;">
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#"><span class="nav-icon">&#xf03e;</span>PROJECTS</a></li>
+                <!--<li><a href="resume.html"><span class="nav-icon">&#xf007;</span>R&Eacute;SUM&Eacute;</a></li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="project-nav">
+        <a id="web-nav-header" class="project-nav-header" href="#web-nav-mark"><span class="nav-icon">&#xf13b;</span><span class="project-nav-text">Web Development</span></a>
+        <a id="android-nav-header" class="project-nav-header" href="#android-nav-mark"><span class="nav-icon">&#xf17b;</span><span class="project-nav-text">Android Development</span></a>
+        <a id="research-nav-header" class="project-nav-header" href="#research-nav-mark"><span class="nav-icon">&#xf0c3;</span><span class="project-nav-text">Experimental Research</span></a>
+</div>
+
+<div class="container main"  style="display:none;margin-top:115px;">
+    <div class="row">
+        <div class="col-lg-1 col-sm-1">
+        </div>
+        <div class="col-lg-10 col-sm-10 main-col">
+
+
+            <div class="main-content">
+
+                <a href="#cityscenes-pic" class="side-icon web" id="CityScenes"></a>
+                <a href="#safewalk-pic"class="side-icon web" id="SafeWalk"></a>
+                <a href="#chainge-pic"class="side-icon web" id="Chainge"></a>
+
+                <div id="web-nav-mark" class="section-header project-section-header">
+                    Web Development
+                </div>
+                <div class="section-subheader project-section-subheader">
+                    Front-End Developer - Apps created with other students
+                </div>
+
+                <div class="app-content web" >
+                    <img id="cityscenes-pic" class="project-icon web" src="img/cityscenes.png"/>
+
+                    <div class="section-header app-title" style="color:#007fff;">
+                        CityScenes
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        Explore the city by bike.
+                    </div>
+                    <div class="description">CityScenes allows you to travel around New York City with CitiBike's bike sharing program and experience a scenic route on the way. It uses the Google Maps API and open NYC data of tourist locations that gives you the optimal route from point A to point B using a CitiBike and passing through the desired number of locations. This app was a hack made during the Young Rewired State (YRS) Hackathon in NYC. It won the "Best in Show" award and gave our team the opportunity to travel to the UK to participate in the YRS UK Hackathon. Skills used include HTML, CSS, JavaScript, Bootstrap, Google Maps API, and Yahoo! Weather API.</div>
+                    <a class="app-link" href="http://cityscenes.tk" target="_blank"><button class="btn app-btn" style="background-color:#007fff;">Visit CityScenes</button></a>
+
+                    <img id="safewalk-pic" class="project-icon web" src="img/safewalk.png"/>
+
+                    <div class="section-header app-title" style="color:#34495e;">
+                        SafeWalk
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        Navigate without fear.
+                    </div>
+                    <div class="description">SafeWalk is an app (in progress) that gives you walking directions throughout Manchester, UK that avoids dangerous locations. The dangerous locations are determined with the Manchester Police open data on crime locations, and a heat map displays these areas on the map provided by the Google Maps API. An algorithm for directions detours around these places above a certain danger threshold. SafeWalk also has a Report/Live Feed feature. This feature gives the user a chance to report a concern or problem he encountered and submit it. This report will update onto the website and display in real time to anyone else viewing the website at the same time. In addition, SafeWalk's responsive design gives an optimal mobile User Interface with an easy-to-access menu. This app was a hack made during the Young Rewired State (YRS) Hackathon in the UK. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, Google Maps API, Yahoo! Weather API, Express, Embedded JS, and MongoDB.</div>
+                    <a class="app-link" href="http://66.175.214.154:3000/" target="_blank"><button class="btn app-btn" style="background-color:#34495e;">Visit SafeWalk</button></a>
+
+                    <img id="chainge-pic"class="project-icon web" src="img/chainge.png"/>
+
+                    <div class="section-header app-title" style="color:#e74c3c;">
+                        Chainge
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        The missing link to a productive lifestyle.
+                    </div>
+                    <div class="description">Chainge is a task management app that helps users keep themselves motivated in the things they've always wanted to do. People usually get highly motivated to do something one day, but then the next day lose that motivation. Chainge helps encourage and instill that motivation. By adding to the daily tasks list, users try to complete their daily tasks consistently and maintain a chain of the number of days they completed their tasks. By adding on to this chainand completing their tasks without fail, users can feel rewarded in their progress by leveling up. The calendar keeps a visual archive of tasks completed on certain days and displays the chains of tasks that were completed daily. Chainge also has a reminders list that can help a user track events to come or things to complete that may not be daily. The reminders can also be sorted by category - Hobbies, Education, or Fitness. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, and CodeIgniter.</div>
+                    <a class="app-link" href="http://chainging.us" target="_blank"><button class="btn app-btn" style="background-color:#e74c3c;">Visit Chainge</button></a>
+                </div>
+
+                <a href="#purehistory-pic" class="side-icon android" id="PureHistory" style="left:-100px"></a>
+
+                <div id="android-nav-mark" class="section-header project-section-header">
+                    Android Development
+                </div>
+                <div class="section-subheader project-section-subheader">
+                    Front-End Developer - An app created with another high school student
+                </div>
+
+                <div class="app-content android">
+                    <img id="purehistory-pic" class="project-icon android" src="img/purehistory-main.png"/>
+
+                    <div class="section-header app-title"  style="color:#da0000;">
+                        PureHistory
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        Bringing history to people of all ages.
+                    </div>
+                    <div class="description">At PureHistory (P) you will be connecting with schools K-12, colleges, universities, libraries, museums, churches, corporations, organizations, build your family tree, build your profile page, media, movies, historical documentaries, music, sports, historical events, over 300 university writers, purehistory book club, destination of historical information around the country and around the world. PureHistory is a database for everybody, from children to elders, providing an array of engaging articles and topics.</div>
+                    <a class="app-link" href="https://play.google.com/store/apps/details?id=com.purehistory.purehistory&hl=en" target="_blank"><button class="btn app-btn" style="background-color:#da0000;">Visit PureHistory at Google Play</button></a>
+
+                </div>
+
+                <a href="#railgun-pic" class="side-icon research" id="Railgun" style="left:-100px"></a>
+                <a href="#arm-pic" class="side-icon research" id="Arm" style="left:-100px"></a>
+                <a href="#car-pic" class="side-icon research" id="Car" style="left:-100px"></a>
+
+                <div id="research-nav-mark" class="section-header project-section-header">
+                    Experimental Research
+                </div>
+                <div class="section-subheader project-section-subheader">
+                    Student Researcher - Projects in engaging topics with the objective to discover new things
+                </div>
+
+                <div class="app-content research">
+                    <img id="railgun-pic" class="project-icon research" src="img/railgun-main.jpg"/>
+                    <div class="section-header app-title">
+                        Electromechanics
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        Investigation of Energy Conversion Efficiency in Railguns
+                    </div>
+                    <div class="description">This study was made to create a new model that can accurately predict railgun efficiency and performance, because there is no standard model that can effectively determine the output performance of a railgun, this research explored the parameters and factors that affected how a railgun performs, and based on the results made a new equation / model to accurately predict the output efficiency of the railgun's projectile. The process involved first solving differential equations to make a predictive/perliminary equations on railgun efficiency, building a railgun from scratch, testing the projectile's output efficiency and comparing predictions to results, and finally adjusting the existing preliminary model made specifically to accurately predict railgun efficiency. This research as a part of the Partners in Science program, under the mentorship of Dr. Seongshik Oh at Rutgers University. Technologies used: LabVIEW</div>
+                    <a class="app-link" href="pdf/railgun-abstract.pdf" target="_blank"><button class="btn app-btn" >View the abstract</button></a>
+
+
+                    <img id="arm-pic" class="project-icon research" src="img/arm-main.jpg"/>
+                    <div class="section-header app-title">
+                        Mechanical Engineering
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        Development of Low-Cost Prosthesis through the Utilization of Granular Jamming
+                    </div>
+                    <div class="description">This project saw the creation of a new type of prosthetic arm for people in developing countries. Standard prosthetic arms, even the simple hook-arms that many amputees use, cost lots of money (thousands of dollars at the least) due to customization needs and investment of time in transitioning to using these often uneasy-to-use gripping mechanisms. Most importantly, prosthetic arms are only dreams to those, especially in developing countries, who lack the money or resources to purchase one. This new prosthetic arm (for below-elbow amputations) has an adjustable mount and an intuitive gripping mechanism, the granular jammer. Granular jamming works by using grains inside a flexible membrane and pressing the membrane against the object. After switching on a vacuum to suck the air out of the membrane, it conforms to the objects shape and can easily grip it. Not only is the arm adjustable to different sizes amputations, but it is easy to use and cost less than 100 dollars to build. This project won 1st place at the Jersey Shore Science Fair, New Jersey Academy of Sciences, Monmouth Junior Science Symposium, and 3rd place at the Delaware Valley Science Fair. This arm design is currently patent-pending.</div>
+                    <a class="app-link" href="pdf/arm-abstract.pdf" target="_blank"><button class="btn app-btn" >View the abstract</button></a>
+
+
+                    <img id="car-pic" class="project-icon research" src="img/car-main.jpg"/>
+                    <div class="section-header app-title">
+                        Fluid Dynamics
+                    </div>
+                    <div class="section-subheader app-slogan">
+                        The Effect of Dimpled Surfaces on the Aerodynamics of Pinewood Derby Cars
+                    </div>
+                    <div class="description">The study was done to observe the effect of implementing dimples on the surface of a vehicle and how it affects the drag force against the vehicle's performance. Two identical pinewood derby cars were the small-scale model vehicles used for the experiment, and each was modified with a layer of clay on top. However, while one car had a smooth surface, the other had a dimpled surface on the clay. The times it took for the dimpled car to reach the finish line were compared to those for the smooth car, and results showed that the dimpled car was able to travel faster than the smooth car, ultimately reducing the drag force that resisted the car's motion. This project won 3rd place at the Jersey Shore Science Fair in Physics.</div>
+                    <a class="app-link" href="pdf/car-abstract.pdf" target="_blank"><button class="btn app-btn" >View the abstract</button></a>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 col-sm-1">
+        </div>
+    </div>
+</div>
+
+<div class="page-footer"  style="display:none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn footer-notes" style="background-color:#c0392b;"><span class="nav-icon footer" >&#xf0e0;</span>andrewmillman35@gmail.com</button>
+                <button class="btn footer-notes" style="background-color:#2ecc71;"><span class="nav-icon footer" >&#xf098;</span>732-320-0013</button>
+                <a class="app-link" href="http://linkedin.com/pub/andrew-millman/7a/721/ab7/" target="_blank"><button class="btn footer-notes" style="background-color:#4875b4;"><span class="nav-icon footer" >&#xf08c;</span>LinkedIn profile</button></a>
+                <a class="app-link" href="https://soundcloud.com/andrew-millman" target="_blank"><button class="btn footer-notes" style="background-color:#f76700;"><span class="nav-icon footer" >&#xf0c2;</span>Music creations</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
