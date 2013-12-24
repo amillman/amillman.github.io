@@ -1,6 +1,13 @@
 $(document).ready(function() {
 
 
+    //menu button reveals menu upon hover
+    $("#menu-icon-wrapper, #menu").hover(function() {
+        $(".expandable").addClass("on");
+    }, function() { //hovering off menu hides it
+        $(".expandable").removeClass("on");
+    });
+
     //"View All" prompt appears upon hovering a section block
     var viewButton = '<div class="more-button">View All<span class="inline-icon">&#xf105;</span></div>';
     $(".section-block").hover(function(){ //when user hovers over block
@@ -48,22 +55,22 @@ _expandBlocks = function(id, title) {
     $("#web-block").animate({
         left: "-51%",
         top:"-51%"
-    }, 400);
+    }, 400, "easeOutCubic");
 
     $("#android-block").animate({
         right: "-51%",
         top:"-51%"
-    }, 400);
+    }, 400, "easeOutCubic");
 
     $("#research-block").animate({
         left: "-51%",
         bottom:"-51%"
-    }, 400);
+    }, 400, "easeOutCubic");
 
     $("#resume-block").animate({
         right: "-51%",
         bottom:"-51%"
-    }, 400);
+    }, 400, "easeOutCubic");
 
 
 
