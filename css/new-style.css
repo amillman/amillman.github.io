@@ -4,6 +4,8 @@ html, body {
 
 .inline-icon {
     font-family:FontAwesome;
+    margin-left:4px;
+    margin-right:4px;
 }
 
 /*=
@@ -59,10 +61,13 @@ MAIN SECTION BLOCKS
     -ms-transition: all 0.2s linear;
     -o-transition: all 0.2s linear;
     transition: all 0.2s linear;
+
 }
 
 .section-block:hover{
     opacity:0.7;
+
+    cursor: pointer; cursor: hand;
 }
 
 #web-block {
@@ -119,6 +124,14 @@ CONTENT WITHIN BLOCKS
         font-size:20px;
         line-height:30px;
     }
+}
+
+@media(min-height:690px){
+
+    .block-icon {
+        padding-top:80px;
+    }
+
 }
 
 .more-button {
