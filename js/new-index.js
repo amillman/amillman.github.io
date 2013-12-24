@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-    var viewButton = '<div class="more-button">View All<span class="inline-icon">&#xf105;</span></div>';
 
+    //"View All" prompt appears upon hovering a section block
+    var viewButton = '<div class="more-button">View All<span class="inline-icon">&#xf105;</span></div>';
     $(".section-block").hover(function(){ //when user hovers over block
 
         $(this).append(viewButton);
@@ -13,18 +14,36 @@ $(document).ready(function() {
 
     });
 
+    //blocks separate from each other when one is clicked and content appears
     $(".section-block").click(function(){
 
-        _expandBlocks("yes");
+        var title = $(this).find(".block-header").text();
+        _expandBlocks($(this).attr("id"),title);
+    });
 
+    //blocks join back together when back button is clicked
+    $("#back-button").click(function(){
+
+        _collapseBlocks();
     });
 
 });
 
 
-_expandBlocks = function(id) {
+_expandBlocks = function(id, title) {
 
-    $("." + id + "-content").fadeIn(200);
+    //make the desired content appear
+    $("." + id + "-content").animate({
+        opacity:1
+    }, 400);
+
+    //make back button appear
+    $("#back-button").css("display","inline-block").animate({
+        opacity:"1"
+    }, 1000);
+
+    //change title name to appropriate name
+    $("#title").text(title);
 
     $("#web-block").animate({
         left: "-51%",
@@ -46,7 +65,25 @@ _expandBlocks = function(id) {
         bottom:"-51%"
     }, 400);
 
-    $(".menu-icon-line").css("background-color","#555555");
-    $("#andrew-info").css("color","#555555");
 
+
+}
+
+_collapseBlocks = function() {
+
+    //change title name back to "Andrew Millman
+    $("#title").text("Andrew Millman");
+
+    //make back button disappear
+    $("#back-button").animate({
+        opacity:"0"
+    }, 300, function() {$(this).css("display","none")});
+
+    //hide content
+    $(".content-wrapper").animate({
+        opacity:0
+    }, 400);
+
+    //put section blocks into original position
+    $(".section-block").css({left:"",right:"",top:"",bottom:""});
 }
