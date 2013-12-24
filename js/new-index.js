@@ -40,7 +40,7 @@ $(document).ready(function() {
 _expandBlocks = function(id, title) {
 
     //make the desired content appear
-    $("." + id + "-content").animate({
+    $("." + id + "-content").css("display","block").animate({
         opacity:1
     }, 400);
 
@@ -89,7 +89,7 @@ _collapseBlocks = function() {
     //hide content
     $(".content-wrapper").animate({
         opacity:0
-    }, 400);
+    }, 400, function() {$(this).css("display","none")});
 
     //put section blocks into original position
     $(".section-block").css({left:"",right:"",top:"",bottom:""});
