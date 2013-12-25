@@ -46,7 +46,8 @@ HEADER
 }
 
 #title {
-    line-height:40px;
+    height:45px;
+    line-height:42px;
     text-align: center;
     position:fixed;
     width:100%;
@@ -224,7 +225,7 @@ CONTENT WITHIN BLOCKS
     width:100%;
     font-family: FontAwesome;
     font-size:140px;
-    line-height: 160px;
+    line-height: 150px;
     padding-top:40px;
     text-align:center;
     margin-left:auto;
@@ -244,8 +245,7 @@ CONTENT WITHIN BLOCKS
 
     .block-icon {
         font-size:50px;
-        line-height: 70px;
-        padding-top:60px;
+        line-height: 60px;
     }
 
     .block-header {
@@ -258,8 +258,7 @@ CONTENT WITHIN BLOCKS
 
     .block-icon {
         font-size:50px;
-        line-height: 70px;
-        padding-top:60px;
+        line-height: 60px;
     }
 
     .block-header {
@@ -268,22 +267,6 @@ CONTENT WITHIN BLOCKS
     }
 }
 
-/*lower content if the screen gets too tall*/
-@media(min-height:690px){
-
-    .block-icon {
-        padding-top:80px;
-    }
-
-}
-/*raise content if the screen gets too short*/
-@media(max-height:440px){
-
-    .block-icon {
-        padding-top:50px;
-    }
-
-}
 
 .more-button {
     position:absolute;

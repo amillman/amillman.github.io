@@ -1,13 +1,22 @@
 $(document).ready(function() {
 
+    //center blocks based on the section block's height in the window
+    _centerBlocks();
+    $(window).resize(function(){_centerBlocks();});
 
-    //menu button reveals menu upon hover
+    //menu button reveals menu upon hover in desktop
     $("#menu-icon-wrapper, #menu").hover(function() {
         $(".expandable").addClass("on");
     }, function() { //hovering off menu hides it
         $(".expandable").removeClass("on");
     });
 
+    //menu button toggles the menu in mobile
+    $("#menu-icon-wrapper").bind('touchstart', function(e) {
+        $(".expandable").toggleClass("on");
+    });
+
+    /*
     //"View All" prompt appears upon hovering a section block
     var viewButton = '<div class="more-button">View All<span class="inline-icon">&#xf105;</span></div>';
     $(".section-block").hover(function(){ //when user hovers over block
@@ -20,6 +29,7 @@ $(document).ready(function() {
         });
 
     });
+    */
 
     //blocks separate from each other when one is clicked and content appears
     $(".section-block").click(function(){
@@ -36,6 +46,11 @@ $(document).ready(function() {
 
 });
 
+
+_centerBlocks = function() {
+    var newPadding  = ($(".section-block").height() - ($(".block-icon").height() + $(".block-header").height()) ) /2;
+    $(".block-icon").css("paddingTop", newPadding);
+}
 
 _expandBlocks = function(id, title) {
 
