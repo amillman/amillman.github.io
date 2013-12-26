@@ -6,7 +6,8 @@ $(document).ready(function() {
         width:"",
         railVisible:true,
         size:'10px',
-        wheelStep:5
+        wheelStep:5,
+        touchScrollStep:50
     };
     $(".content-wrapper > .container, #menu-content").slimScroll(scrollBarParameters);
 

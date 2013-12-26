@@ -4,6 +4,10 @@ html{
     padding-top:45px; /* for navbar */
 }
 
+* {
+    overflow:hidden;
+}
+
 body {
     position:relative;
     height:100%;
@@ -13,6 +17,11 @@ body {
     font-family:FontAwesome;
     margin-left:6px;
     margin-right:6px;
+}
+
+.slimScrollBar, .slimScrollRail {
+    border-radius:0!important;
+    right:0px!important;
 }
 
 /*=
@@ -27,6 +36,7 @@ HEADER
     top:0;
     background-color:#f0f0f0;
     border-bottom:1px solid #cccccc;
+    overflow:visible!important; /*let the gray from the menu icon overhang the border so it looks connected with menu upon highlight*/
 
 }
 
@@ -51,7 +61,7 @@ HEADER
     height:45px;
     line-height:42px;
     text-align: center;
-    position:fixed;
+    position:absolute;
     width:100%;
     top:0;
     font-size:20px;
