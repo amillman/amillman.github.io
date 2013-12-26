@@ -1,4 +1,2 @@
-Complete Redesign for a more compact and easier to navigate interface
+amillman.github.io
 ==================
-
-Portfolio
