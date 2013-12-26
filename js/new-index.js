@@ -1,11 +1,23 @@
 $(document).ready(function() {
 
+    //attach custom scrollbars to contents and menu
+    var scrollBarParameters = {
+        height:"100%",
+        width:"",
+        railVisible:true,
+        size:'10px',
+        wheelStep:5
+    };
+    $(".content-wrapper > .container, #menu-content").slimScroll(scrollBarParameters);
+
     //center blocks based on the section block's height in the window
     _centerBlocks();
     $(window).resize(function(){_centerBlocks();});
 
+
+
     //menu button reveals menu upon hover in desktop
-    $("#menu-icon-wrapper, #menu").hover(function() {
+    $("#menu-icon-wrapper, #menu-wrapper").hover(function() {
         $(".expandable").addClass("on");
     }, function() { //hovering off menu hides it
         $(".expandable").removeClass("on");
