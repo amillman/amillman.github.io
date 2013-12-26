@@ -116,7 +116,7 @@ SIDE MENU
     position: relative;
     height: 100px;
     width:300px;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid rgba(129, 129, 129, 0.54);
     padding: 10px;
     display:inline-block;
 }
@@ -161,7 +161,7 @@ SIDE MENU
     height: 60px;
     width: 250px;
     margin-left:50px;
-    border-bottom: 1px solid #888888;
+    border-bottom: 1px solid rgba(129, 129, 129, 0.54);
     padding-left: 10px;
     padding-top: 20px;
     font-size: 18px;
@@ -192,8 +192,16 @@ MAIN SECTION BLOCKS
 
 .section-block:hover{
     opacity:0.7;
-
     cursor: pointer; cursor: hand;
+}
+
+/*give the transition animations for moving the section blocks 0.5s*/
+.out {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
 #web-block {
@@ -201,20 +209,48 @@ MAIN SECTION BLOCKS
     float:left;
 }
 
+#web-block.corner {
+    left:-51%;
+    top:-51%;
+}
+#web-block.side {left:-51%;}
+#web-block.vert {top:-51%;}
+
 #android-block {
     background-color:#A4C639;
     float:right;
 }
+
+#android-block.corner {
+    right:-51%;
+    top:-51%;
+}
+#android-block.side {right:-51%;}
+#android-block.vert {top:-51%;}
 
 #research-block {
     background-color:#3498db;
     float:left;
 }
 
+#research-block.corner {
+    left:-51%;
+    bottom:-51%;
+}
+#research-block.side {left:-51%;}
+#research-block.vert {bottom:-51%;}
+
 #resume-block {
     background-color:#34495e;
     float:right;
 }
+
+#resume-block.corner {
+    right:-51%;
+    bottom:-51%;
+}
+#resume-block.side {right:-51%;}
+#resume-block.vert {bottom:-51%;}
 
 /*=
 CONTENT WITHIN BLOCKS
@@ -291,11 +327,18 @@ PROJECT CONTENT
 .row {
     padding-top:30px;
     padding-bottom:30px;
+    background-color:white;
+    border-right:1px solid #cccccc;
+    border-left:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
 }
 
 .project-picture {
-    height:300px;
-    width:300px;
+    width:100%;
+    max-width:300px;
+    display:block;
     margin-left:auto;
     margin-right:auto;
+    margin-top:30px;
+    margin-bottom:30px;
 }

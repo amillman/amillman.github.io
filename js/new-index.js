@@ -33,14 +33,12 @@ $(document).ready(function() {
 
     //blocks separate from each other when one is clicked and content appears
     $(".section-block").click(function(){
-
         var title = $(this).find(".block-header").text();
         _expandBlocks($(this).attr("id"),title);
     });
 
     //blocks join back together when back button is clicked
     $("#back-button").click(function(){
-
         _collapseBlocks();
     });
 
@@ -54,46 +52,34 @@ _centerBlocks = function() {
 
 _expandBlocks = function(id, title) {
 
-    //make the desired content appear
-    $("." + id + "-content").css("display","block").animate({
-        opacity:1
-    }, 400);
+    //change title name to appropriate name
+    $("#title").text(title);
 
     //make back button appear
     $("#back-button").css("display","inline-block").animate({
         opacity:"1"
     }, 1000);
 
-    //change title name to appropriate name
-    $("#title").text(title);
+    //make the desired content appear
+    $("." + id + "-content").css("display","block").animate({
+        opacity:1
+    }, 400);
 
-    $("#web-block").animate({
-        left: "-51%",
-        top:"-51%"
-    }, 400, "easeOutCubic");
-
-    $("#android-block").animate({
-        right: "-51%",
-        top:"-51%"
-    }, 400, "easeOutCubic");
-
-    $("#research-block").animate({
-        left: "-51%",
-        bottom:"-51%"
-    }, 400, "easeOutCubic");
-
-    $("#resume-block").animate({
-        right: "-51%",
-        bottom:"-51%"
-    }, 400, "easeOutCubic");
-
-
+    //move the blocks out of the way with random animation
+    $(".section-block").addClass("out");
+    var transition = Math.floor((Math.random() * 3)+ 1);
+    if(transition == 1)
+        $(".section-block").addClass("corner");
+    else if (transition == 2)
+        $(".section-block").addClass("side");
+    else if (transition == 3)
+        $(".section-block").addClass("vert");
 
 }
 
 _collapseBlocks = function() {
 
-    //change title name back to "Andrew Millman
+    //change title name back to "Andrew Millman"
     $("#title").text("Andrew Millman");
 
     //make back button disappear
@@ -107,5 +93,5 @@ _collapseBlocks = function() {
     }, 400, function() {$(this).css("display","none")});
 
     //put section blocks into original position
-    $(".section-block").css({left:"",right:"",top:"",bottom:""});
+    $(".section-block").removeClass("out").removeClass("corner").removeClass("side").removeClass("vert");
 }
