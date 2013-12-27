@@ -70,8 +70,9 @@ _expandBlocks = function(id, title) {
 
     //make back button appear
     $("#back-button").css("display","inline-block").animate({
-        opacity:"1"
-    }, 1000);
+        opacity:"1",
+        left:0
+    }, 700);
 
     //make the desired content appear
     $("." + id + "-content").css("display","block").animate({

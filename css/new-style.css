@@ -1,3 +1,21 @@
+@font-face
+{
+    font-family: FontAwesome;
+    src: url("../font/fontawesome-webfont.ttf");
+}
+
+@font-face
+{
+    font-family: PatrickHandSC;
+    src: url("../font/PatrickHandSC-Regular.ttf");
+}
+
+@font-face
+{
+    font-family: Economica;
+    src: url("../font/Economica-Regular.ttf");
+}
+
 html{
     height: 100%;
     overflow:hidden!important;
@@ -9,8 +27,14 @@ html{
 }
 
 body {
+    background-color:#ebebeb;
+    font-family: 'Economica', sans-serif;
     position:relative;
     height:100%;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 .inline-icon {
@@ -46,6 +70,7 @@ HEADER
     height:100%;
     width:80px;
     position:relative;
+    left:30%;
     z-index:1000;
     padding:9px;
     padding-left:7px;
@@ -380,4 +405,31 @@ PROJECT CONTENT
     font-size:18px;
     color:#868686;
     text-align:justify;
+}
+
+.btn {
+    background-color:#7e7e7e;
+    padding:20px;
+    border-radius: 4px;
+    font-size:18px;
+    line-height:20px;
+    display: block;
+    margin-top:40px;
+    margin-bottom:10px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width:250px;
+    color:#ffffff;
+
+
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+
+.btn:hover, .btn:focus {
+    color:#ffffff;
+    opacity:0.7;
 }
