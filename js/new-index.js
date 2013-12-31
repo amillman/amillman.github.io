@@ -98,7 +98,8 @@ _collapseBlocks = function() {
 
     //make back button disappear
     $("#back-button").animate({
-        opacity:"0"
+        opacity:"0",
+        left:"30%"
     }, 300, function() {$(this).css("display","none")});
 
     //hide content
