@@ -402,8 +402,8 @@ PROJECT CONTENT
 
 .project-description {
     margin-top:20px;
-    line-height:22px;
-    font-size:18px;
+    line-height:23px;
+    font-size:19px;
     color:#868686;
     text-align:justify;
 }
@@ -433,4 +433,8 @@ PROJECT CONTENT
 .btn:hover, .btn:focus {
     color:#ffffff;
     opacity:0.7;
+}
+
+.resume-block-content .inline-icon {
+    line-height:25px;
 }
