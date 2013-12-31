@@ -9,7 +9,7 @@ $(document).ready(function() {
         wheelStep:5,
         touchScrollStep:50
     };
-    $(".content-wrapper > .container, #menu-content").slimScroll(scrollBarParameters);
+    //$(".content-wrapper > .container, #menu-content").slimScroll(scrollBarParameters);
 
     //center blocks based on the section block's height in the window
     _centerBlocks();
