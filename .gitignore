@@ -1,0 +1,5 @@
+.idea/*
+*.xdk
+*.xdke
+*/.DS_Store
+.DS_Store
