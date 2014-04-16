@@ -184,6 +184,10 @@ SIDE MENU
     position:relative;
 }
 
+.list-item:hover {
+    background-color: rgba(129, 129, 129, 0.54);
+}
+
 #options-list .list-item span {
     font-family:FontAwesome;
     position:absolute;
@@ -296,7 +300,7 @@ MAIN SECTION BLOCKS
 }
 
 #research-block {
-    background-color:#3498db;
+    background-color:#419fd5;
     float:left;
 }
 
@@ -323,7 +327,7 @@ MAIN SECTION BLOCKS
 }
 
 #resume-block {
-    background-color:#34495e;
+    background-color:#805694;
     float:right;
 }
 
