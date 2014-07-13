@@ -4,9 +4,28 @@ $(document).ready( function() {
 
   $(".menu-button-wrapper").click(function() {
     var menuAndButton = $(".side-menu, .menu-button");
-    if ( !menuAndButton.hasClass("open") ) { menuAndButton.addClass("open").removeClass("normal") }
-    else { menuAndButton.addClass("normal").removeClass("open") }
-  })
+    if ( !menuAndButton.hasClass("open") ) {
+      menuAndButton.addClass("open").removeClass("normal");
+      $(".transparent-overlay.menu").addClass("menu-open").unbind().click( function () {
+        menuAndButton.addClass("normal").removeClass("open");
+        $(this).removeClass("menu-open");
+      });
+    }
+    else {
+      menuAndButton.addClass("normal").removeClass("open");
+      $(".transparent-overlay.menu").removeClass("menu-open");
+    }
+  });
+
+  $(".home-wrapper .button-wrapper .btn").click( function() {
+    $(".section-wrapper, .back-button").addClass("open");
+    $(".transparent-overlay.section").addClass("section-open");
+
+    $(".back-button").unbind().click( function() {
+      $(".section-wrapper, .back-button").removeClass("open");
+      $(".transparent-overlay.section").removeClass("section-open");
+    });
+  });
 
   $(window).resize(function() {
     adjustBgSize();

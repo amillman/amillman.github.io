@@ -4,7 +4,7 @@
 @box-shadow: 0 0 10px rgba(0,0,0,0.5);
 @text-shadow: 0 0 10px rgba(0,0,0,0.7);
 @black-overlay-color: rgba(23,23,23,0.6); //rgba(23,23,23,0.7) original
-@white-overlay-color: rgba(77,77,77,0.3); //rgba(77,77,77,0.3) original
+@white-overlay-color: rgba(125,125,125,0.4); //rgba(77,77,77,0.3) original
 
 .transition {
   -webkit-transition: all 0.3s ease;
@@ -41,8 +41,8 @@ body {
     position:relative;
     height:100%;
     display: table;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0;
+    width: 100%;
 }
 
 a:hover {
@@ -56,15 +56,44 @@ a:hover {
     top: 0px;
     left: 0px;
     right: 0px;
+    color: @light-text-color;
     z-index: 1000;
     @import "menu-button-style.less";
+
+    & > * {
+        display: inline-block;
+    }
+
+    .back-button {
+        position: relative;
+        left: 33%;
+        opacity: 0;
+        height: 100%;
+        line-height: 46px;
+        font-size: 17px;
+        padding-left: @univ-padding /2 - 2; //small adjustments
+        padding-right: @univ-padding /2;
+        text-shadow: @text-shadow;
+        .transition-long;
+
+        &.open {
+            left: 0;
+            opacity: 1;
+
+            &:hover { cursor: pointer; }
+        }
+
+        i {
+            margin-right: @univ-padding /2;
+        }
+    }
 }
 
 .side-menu {
     position:fixed;
     width: 0;
     height: 100%;
-    z-index:100;
+    z-index:500;
     right: 0;
     bottom: 0;
     top: 0;
@@ -95,6 +124,7 @@ a:hover {
         overflow-y: auto!important;
 
         .list-header {
+            width: 100%;
             padding-left: @univ-padding;
             padding-right: @univ-padding;
             padding-top: @univ-padding /4;
@@ -103,26 +133,31 @@ a:hover {
             background: rgba(23,23,23,0.3);
         }
 
-        .list-item {
+        .list {
             width: 100%;
-            display: block;
-            padding: @univ-padding;
-            color: @light-text-color;
-            font-size: 16px;
-            line-height: 20px;
-            .transition;
 
-            &:hover {
-                background: rgba(255,255,255,0.15);
-                cursor: pointer;
-            }
+            .list-item {
+                width: 100%;
+                display: block;
+                padding: @univ-padding;
+                color: @light-text-color;
+                font-size: 16px;
+                line-height: 20px;
+                .transition;
 
-            i {
-                margin-right: @univ-padding;
-                width: @univ-padding;
-                text-align: center;
+                &:hover {
+                    background: rgba(255,255,255,0.15);
+                    cursor: pointer;
+                }
+
+                i {
+                    margin-right: @univ-padding;
+                    width: @univ-padding;
+                    text-align: center;
+                }
             }
         }
+
     }
 
     .bg-blur {
@@ -137,11 +172,13 @@ a:hover {
 }
 
 .home-wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
     color: white;
     display: table-cell;
     vertical-align: middle;
+    z-index: 1;
 
     .profile-header {
         margin-left: auto;
@@ -195,5 +232,68 @@ a:hover {
                 }
             }
         }
+    }
+}
+
+.section-wrapper {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+    .transition-long;
+
+    &.open {
+        top: 46px;
+    }
+
+    .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: @white-overlay-color;
+    }
+
+    .bg-blur {
+        position: absolute;
+        width: 500px;
+        height: 100%;
+        top: -100%;
+        right: 0;
+        background: url("../img/bg-blur.jpg");
+        z-index: -1;
+
+        -webkit-transition: top 0.6s ease;
+        -moz-transition: top 0.6s ease;
+        -o-transition: top 0.6s ease;
+        -ms-transition: top 0.6s ease;
+        transition: top 0.6s ease;
+    }
+
+    &.open .bg-blur {
+        top: -46px;
+    }
+}
+
+.transparent-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    .transition-long;
+
+    &.menu-open {
+        z-index: 499;
+    }
+
+    &.section-open {
+        background: rgba(0,0,0,0.4);
+        z-index: 99;
     }
 }
