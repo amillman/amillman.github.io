@@ -3,7 +3,7 @@ $(document).ready( function() {
   adjustBgSize();
 
   $(".menu-button-wrapper").click(function() {
-    var menuAndButton = $(".side-menu-wrapper, .menu-button");
+    var menuAndButton = $(".side-menu, .menu-button");
     if ( !menuAndButton.hasClass("open") ) { menuAndButton.addClass("open").removeClass("normal") }
     else { menuAndButton.addClass("normal").removeClass("open") }
   })

@@ -1,4 +1,6 @@
 @univ-padding: 20px;
+@dark-text-color: #222;
+@light-text-color: #fff;
 @box-shadow: 0 0 10px rgba(0,0,0,0.5);
 @text-shadow: 0 0 10px rgba(0,0,0,0.7);
 @black-overlay-color: rgba(23,23,23,0.6); //rgba(23,23,23,0.7) original
@@ -52,11 +54,13 @@ a:hover {
     width: 100%;
     height: 46px;
     top: 0px;
+    left: 0px;
+    right: 0px;
     z-index: 1000;
     @import "menu-button-style.less";
 }
 
-.side-menu-wrapper {
+.side-menu {
     position:fixed;
     width: 0;
     height: 100%;
@@ -72,12 +76,53 @@ a:hover {
         width: 300px;
     }
 
-    .content {
-        position: relative;
+    .spacer {
         width: 100%;
-        height: 100%;
+        height: 46px;
         background-color: @black-overlay-color;
-        z-index: 10;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+
+    .content {
+        position: absolute;
+        top: 46px;
+        left: 0px;
+        bottom: 0px;
+        width: 300px;
+        color: @light-text-color;
+        background: @black-overlay-color;
+        overflow-y: auto!important;
+
+        .list-header {
+            padding-left: @univ-padding;
+            padding-right: @univ-padding;
+            padding-top: @univ-padding /4;
+            padding-bottom: @univ-padding /4;
+            font-size: 13px;
+            background: rgba(23,23,23,0.3);
+        }
+
+        .list-item {
+            width: 100%;
+            display: block;
+            padding: @univ-padding;
+            color: @light-text-color;
+            font-size: 16px;
+            line-height: 20px;
+            .transition;
+
+            &:hover {
+                background: rgba(255,255,255,0.15);
+                cursor: pointer;
+            }
+
+            i {
+                margin-right: @univ-padding;
+                width: @univ-padding;
+                text-align: center;
+            }
+        }
     }
 
     .bg-blur {
@@ -87,7 +132,7 @@ a:hover {
         top: 0;
         right: 0;
         background: url("../img/bg-blur.jpg");
-        z-index: 0;
+        z-index: -1;
     }
 }
 
