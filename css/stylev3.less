@@ -1,7 +1,8 @@
 @univ-padding: 20px;
 @box-shadow: 0 0 10px rgba(0,0,0,0.5);
 @text-shadow: 0 0 10px rgba(0,0,0,0.7);
-@black-overlay-color: rgba(23,23,23,0.7);
+@black-overlay-color: rgba(23,23,23,0.6); //rgba(23,23,23,0.7) original
+@white-overlay-color: rgba(77,77,77,0.3); //rgba(77,77,77,0.3) original
 
 .transition {
   -webkit-transition: all 0.3s ease;
@@ -53,6 +54,41 @@ a:hover {
     top: 0px;
     z-index: 1000;
     @import "menu-button-style.less";
+}
+
+.side-menu-wrapper {
+    position:fixed;
+    width: 0;
+    height: 100%;
+    z-index:100;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    overflow:hidden;
+    overflow-y:auto!important;
+    .transition;
+
+    &.open {
+        width: 300px;
+    }
+
+    .content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background-color: @black-overlay-color;
+        z-index: 10;
+    }
+
+    .bg-blur {
+        position: absolute;
+        width: 500px;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: url("../img/bg-blur.jpg");
+        z-index: 0;
+    }
 }
 
 .home-wrapper {
