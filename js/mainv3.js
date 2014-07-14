@@ -18,7 +18,7 @@ $(document).ready( function() {
 
   }
 
-  //adjust background size before showing contens on screen
+  //adjust background size before showing contents on screen
   adjustBgSize();
 
   //open menu
@@ -63,7 +63,10 @@ $(document).ready( function() {
 
   //show page when loading complete
   $(window).load(function() {
-    $(".side-menu, .menu-button").addClass("normal").removeClass("open");
+    //unload the preloaded normal bg's done via side menu
+    $(".side-menu .list-item.theme").removeClass("active");
+    //allow preloaded bg's to unload
+    setTimeout( function() { $(".side-menu, .menu-button").addClass("normal").removeClass("open") }, 300);
     $(".section-wrapper, .back-button").removeClass("open");
     setTimeout(function() { $("html").removeClass("loading") }, 700);
   });
