@@ -1,5 +1,23 @@
 $(document).ready( function() {
 
+  var index = Math.floor(Math.random() * 4) + 1;
+
+  switch (index) {
+    case 1:
+      changeTheme("mountain");
+      break;
+    case 2:
+      changeTheme("lake");
+      break;
+    case 3:
+      changeTheme("sunset");
+      break;
+    case 4:
+      changeTheme("forest");
+      break;
+
+  }
+
   adjustBgSize();
 
   $(".menu-button-wrapper").click(function() {
@@ -28,11 +46,30 @@ $(document).ready( function() {
     });
   });
 
+  $(".side-menu .list-item.theme").click( function() {
+    var that = $(this);
+    if (!that.hasClass("active-item")) {
+      changeTheme(that.data("theme"));
+    }
+  });
+
   $(window).resize(function() {
     adjustBgSize();
   });
 
+  $(window).load(function() {
+
+  });
+
 });
+
+function changeTheme( theme ) {
+    $("html").removeClass("mountain lake sunset forest").addClass(theme + " active");
+    $(".bg-blur").removeClass("mountain lake sunset forest").addClass(theme);
+    var sideMenu = $(".side-menu");
+    sideMenu.find($(".list-item")).removeClass("active-item");
+    sideMenu.find($(".list-item." + theme)).addClass("active-item");
+}
 
 function adjustBgSize() {
 
