@@ -18,8 +18,10 @@ $(document).ready( function() {
 
   }
 
+  //adjust background size before showing contens on screen
   adjustBgSize();
 
+  //open menu
   $(".menu-button-wrapper").click(function() {
     var menuAndButton = $(".side-menu, .menu-button");
     if ( !menuAndButton.hasClass("open") ) {
@@ -35,6 +37,7 @@ $(document).ready( function() {
     }
   });
 
+  //open section
   $(".home-wrapper .button-wrapper .btn").click( function() {
     populateSection( $(this).text() );
     $(".section-wrapper, .back-button").addClass("open");
@@ -46,6 +49,7 @@ $(document).ready( function() {
     });
   });
 
+  //change theme
   $(".side-menu .list-item.theme").click( function() {
     var that = $(this);
     if (!that.hasClass("active-item")) {
@@ -57,8 +61,11 @@ $(document).ready( function() {
     adjustBgSize();
   });
 
+  //show page when loading complete
   $(window).load(function() {
-
+    $(".side-menu, .menu-button").addClass("normal").removeClass("open");
+    $(".section-wrapper, .back-button").removeClass("open");
+    setTimeout(function() { $("html").removeClass("loading") }, 700);
   });
 
 });
@@ -136,5 +143,4 @@ function populateSection( title ) {
       sectionContainer.find($(".project-description")).last().append('<div class="resume-line">' + this + '</div>');
     });
   }
-    console.log(title);
 }
