@@ -45,3 +45,7 @@ function adjustBgSize() {
     $("html, .bg-blur").css("background-size", "100% auto");
   }
 }
+
+function populateSection() {
+
+}
