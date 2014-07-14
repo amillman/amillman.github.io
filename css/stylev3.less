@@ -352,6 +352,20 @@ a:hover {
             font-size:18px;
             color: @dark-text-color;
             text-align:justify;
+
+            &.resume {
+                text-align: left;
+            }
+
+            .resume-line {
+                margin-left: 15px;
+
+                &:before {
+                    position: absolute;
+                    left: @univ-padding;
+                    content:"-"
+                }
+            }
         }
 
         .btn {
@@ -404,6 +418,12 @@ a:hover {
             .project-description {
                 font-size: 16px;
                 line-height: 20px;
+
+                .resume-line {
+                    margin-left: 10px;
+
+                    &:before { left: 10px; }
+                }
             }
 
             .btn {
