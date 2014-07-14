@@ -18,6 +18,7 @@ $(document).ready( function() {
   });
 
   $(".home-wrapper .button-wrapper .btn").click( function() {
+    populateSection( $(this).text() );
     $(".section-wrapper, .back-button").addClass("open");
     $(".transparent-overlay.section").addClass("section-open");
 
@@ -46,6 +47,27 @@ function adjustBgSize() {
   }
 }
 
-function populateSection() {
+function populateSection( title ) {
+  var sectionContainer = $(".section-wrapper .content .container");
+  sectionContainer.html('');
 
+  $.each( contentInfo[title].projects, function(i, val) {
+    sectionContainer.append(
+      '<div class="row">' +
+        '<div class="col-sm-6">' +
+            '<img src="img/' + this.image + '" class="project-picture"/>' +
+        '</div>' +
+        '<div class="col-sm-6">' +
+            '<div class="project-name">' + this.title + '</div>' +
+            '<div class="project-slogan">' + this.slogan + '</div>' +
+            '<div class="project-description">' + this.description + '</div>' +
+            '<a href=' + this.link + ' target="_blank">' +
+              '<button class="btn" style="background-color:' + (this.hasOwnProperty('color') ? this.color : '') + ';">' +
+                'View ' + (this.abstract ? 'abstract' : this.title )  +
+              '</button>' +
+            '</a>' +
+        '</div>' +
+    '</div>'
+    );
+  });
 }

@@ -22,7 +22,7 @@ var contentInfo = {
                 "image": "chainge.png",
                 "slogan":"The missing link to a more productive lifestyle.",
                 "description":"Chainge is a task management app that helps users keep themselves motivated in the things they've always wanted to do. People usually get highly motivated to do something one day, but then the next day lose that motivation. Chainge helps encourage and instill that motivation. By adding to the daily tasks list, users try to complete their daily tasks consistently and maintain a chain of the number of days they completed their tasks. By adding on to this chainand completing their tasks without fail, users can feel rewarded in their progress by leveling up. The calendar keeps a visual archive of tasks completed on certain days and displays the chains of tasks that were completed daily. Chainge also has a reminders list that can help a user track events to come or things to complete that may not be daily. The reminders can also be sorted by category - Hobbies, Education, or Fitness. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, and CodeIgniter.",
-                "link" "http://chainging.us"
+                "link": "http://chainging.us",
                 "color":"#e74c3c"
             },
             {
@@ -30,7 +30,7 @@ var contentInfo = {
                 "image": "safewalk.png",
                 "slogan":"Navigate without fear.",
                 "description":"SafeWalk is an app that gives you walking directions throughout Manchester, UK that avoids dangerous locations. The dangerous locations are determined with the Manchester Police open data on crime locations, and a heat map displays these areas on the map provided by the Google Maps API. An algorithm for directions detours around these places above a certain danger threshold. SafeWalk also has a Report/Live Feed feature. This feature gives the user a chance to report a concern or problem he encountered and submit it. This report will update onto the website and display in real time to anyone else viewing the website at the same time. In addition, SafeWalk's responsive design gives an optimal mobile User Interface with an easy-to-access menu. This app was a hack made during the Young Rewired State (YRS) Hackathon in the UK. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, Google Maps API, Yahoo! Weather API, Express, Embedded JS, and MongoDB.",
-                "link" "http://chainging.us"
+                "link": "",
                 "color":"#34495e"
             }
         ]
@@ -54,21 +54,24 @@ var contentInfo = {
                 "image": "railgun.png",
                 "slogan": "Investigation of Energy Conversion Efficiency in Railguns",
                 "description": "This study was made to create a new model that can accurately predict railgun efficiency and performance, because there is no standard model that can effectively determine the output performance of a railgun, this research explored the parameters and factors that affected how a railgun performs, and based on the results made a new equation / model to accurately predict the output efficiency of the railgun's projectile. The process involved first solving differential equations to make a predictive/perliminary equations on railgun efficiency, building a railgun from scratch, testing the projectile's output efficiency and comparing predictions to results, and finally adjusting the existing preliminary model made specifically to accurately predict railgun efficiency. This research as a part of the Partners in Science program, under the mentorship of Dr. Seongshik Oh at Rutgers University. Technologies used: LabVIEW",
-                "link": "pdf/railgun-abstract.pdf"
+                "link": "pdf/railgun-abstract.pdf",
+                "abstract": true
             },
             {
                 "title": "Mechanical Engineering",
                 "image": "arm.png",
                 "slogan": "Development of Low-Cost Prosthesis through the Utilization of Granular Jamming",
                 "description": "This project saw the creation of a new type of prosthetic arm for people in developing countries. Standard prosthetic arms, even the simple hook-arms that many amputees use, cost lots of money (thousands of dollars at the least) due to customization needs and investment of time in transitioning to using these often uneasy-to-use gripping mechanisms. Most importantly, prosthetic arms are only dreams to those, especially in developing countries, who lack the money or resources to purchase one. This new prosthetic arm (for below-elbow amputations) has an adjustable mount and an intuitive gripping mechanism, the granular jammer. Granular jamming works by using grains inside a flexible membrane and pressing the membrane against the object. After switching on a vacuum to suck the air out of the membrane, it conforms to the objects shape and can easily grip it. Not only is the arm adjustable to different sizes amputations, but it is easy to use and cost less than 100 dollars to build. This project won 1st place at the Jersey Shore Science Fair, New Jersey Academy of Sciences, Monmouth Junior Science Symposium, and 3rd place at the Delaware Valley Science Fair. This arm design is currently patent-pending.",
-                "link": "pdf/arm-abstract.pdf"
+                "link": "pdf/arm-abstract.pdf",
+                "abstract": true
             },
             {
                 "title": "Fluid Dynamics",
                 "image": "car.png",
                 "slogan": "The Effect of Dimpled Surfaces on the Aerodynamics of Pinewood Derby Cars",
                 "description": "The study was done to observe the effect of implementing dimples on the surface of a vehicle and how it affects the drag force against the vehicle's performance. Two identical pinewood derby cars were the small-scale model vehicles used for the experiment, and each was modified with a layer of clay on top. However, while one car had a smooth surface, the other had a dimpled surface on the clay. The times it took for the dimpled car to reach the finish line were compared to those for the smooth car, and results showed that the dimpled car was able to travel faster than the smooth car, ultimately reducing the drag force that resisted the car's motion. This project won 3rd place at the Jersey Shore Science Fair in Physics.",
-                "link": "pdf/car-abstract.pdf"
+                "link": "pdf/car-abstract.pdf",
+                "abstract": true
             }
         ]
     },
