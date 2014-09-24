@@ -24,19 +24,27 @@ var contentInfo = {
                 "description":"Chainge is a task management app that helps users keep themselves motivated in the things they've always wanted to do. People usually get highly motivated to do something one day, but then the next day lose that motivation. Chainge helps encourage and instill that motivation. By adding to the daily tasks list, users try to complete their daily tasks consistently and maintain a chain of the number of days they completed their tasks. By adding on to this chainand completing their tasks without fail, users can feel rewarded in their progress by leveling up. The calendar keeps a visual archive of tasks completed on certain days and displays the chains of tasks that were completed daily. Chainge also has a reminders list that can help a user track events to come or things to complete that may not be daily. The reminders can also be sorted by category - Hobbies, Education, or Fitness. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, and CodeIgniter.",
                 "link": "http://chainging.us",
                 "color":"#e74c3c"
-            },
-            {
+            }//,
+            /*{
                 "title":"SafeWalk",
                 "image": "safewalk.png",
                 "slogan":"Navigate without fear.",
                 "description":"SafeWalk is an app that gives you walking directions throughout Manchester, UK that avoids dangerous locations. The dangerous locations are determined with the Manchester Police open data on crime locations, and a heat map displays these areas on the map provided by the Google Maps API. An algorithm for directions detours around these places above a certain danger threshold. SafeWalk also has a Report/Live Feed feature. This feature gives the user a chance to report a concern or problem he encountered and submit it. This report will update onto the website and display in real time to anyone else viewing the website at the same time. In addition, SafeWalk's responsive design gives an optimal mobile User Interface with an easy-to-access menu. This app was a hack made during the Young Rewired State (YRS) Hackathon in the UK. Skills used include HTML, CSS, JavaScript, PHP, MySQL, Bootstrap, Google Maps API, Yahoo! Weather API, Express, Embedded JS, and MongoDB.",
                 "link": "",
                 "color":"#34495e"
-            }
+            }*/
         ]
     },
-    "Android Development": {
+    "Mobile Development": {
         "projects": [
+            {
+                "title": "Tweetstep",
+                "image": "tweetstep.png",
+                "slogan": "Step your tweets.",
+                "description": "Tweetstep is a creation from the TechCrunch Disrupt Hackathon in San Francisco. It takes a live stream of tweets as the app is opened. The user chooses what type of music (happy, chill, sad, angry) to listen to, and the app uses certain keywords to check for presence of a certain emotion. For example, if the user chooses happy, the app would look for tweets that contain words like happy, great, win, or good. When the app finds those words in tweets, the tweets are mapped to a certain musical note, and as a result the app plays a live melody of tweets.",
+                "link": "https://github.com/BerkeleyBaes/Tweetstep",
+                "color":"#34495e"
+            },
             {
                 "title": "PureHistory",
                 "image": "purehistory.png",
