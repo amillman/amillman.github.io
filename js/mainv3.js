@@ -39,14 +39,18 @@ $(document).ready( function() {
 
   //open section
   $(".home-wrapper .button-wrapper .btn").click( function() {
-    populateSection( $(this).text() );
-    $(".section-wrapper, .back-button").addClass("open");
-    $(".transparent-overlay.section").addClass("section-open");
+    var text = $(this).text();
 
-    $(".back-button").unbind().click( function() {
-      $(".section-wrapper, .back-button").removeClass("open");
-      $(".transparent-overlay.section").removeClass("section-open");
-    });
+    if (text != "Resume") {
+      populateSection(text);
+      $(".section-wrapper, .back-button").addClass("open");
+      $(".transparent-overlay.section").addClass("section-open");
+
+      $(".back-button").unbind().click( function() {
+        $(".section-wrapper, .back-button").removeClass("open");
+        $(".transparent-overlay.section").removeClass("section-open");
+      });
+    }
   });
 
   //change theme
