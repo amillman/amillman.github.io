@@ -38,6 +38,14 @@ var contentInfo = {
     "Mobile Development": {
         "projects": [
             {
+                "title": "Watershed",
+                "image": "watershed.png",
+                "slogan": "For the nonprofit Project Watershed.",
+                "description": "Watershed is an app made by Blueprint at UC Berkeley for the nonprofit organization Project Watershed. By planting various plants around and maintaining them, people can protect local watersheds and keep them clean, ultimately preserving our ecosystem. In order to keep fluid maintenance of the plants planted around the Bay Area, employees and community members need some efficient way to communicate what various plants need, who will maintain them, and how they will be maintained. The Watershed App, for both iOS and Android (personally worked on the iOS app), allows users to do all that. It allows them to keep track of the status of plants planted around the Bay Area and lets managers easily distribute tasks to users. The app is still currently under development and will be put on the App Store / Play Store.",
+                "link": "https://github.com/calblueprint/watershed",
+                "color":"#81b4de"
+            },
+            {
                 "title": "Tweetstep",
                 "image": "tweetstep.png",
                 "slogan": "Step your tweets.",
