@@ -1,0 +1,78 @@
+@navbar-height:         46px;
+@univ-padding:          20px;
+@tight-padding:         10px;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    padding-top: @navbar-height;
+    background-size: 100% auto;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0,0,0,0);
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.home-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    z-index: 1;
+
+    .profile-header {
+        margin-bottom: @univ-padding;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: black;
+
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            border-radius: 50px;
+            margin-right: @tight-padding;
+        }
+
+        .profile-description {
+            left: 60px;
+            line-height: 25px;
+            font-weight: bold;
+        }
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .home-button {
+            background-color: rgba(200,200,200, 0.4);
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+
+            &:not(:last-child) {
+                margin-right: @univ-padding;
+            }
+        }
+    }
+}
