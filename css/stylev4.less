@@ -29,6 +29,18 @@
 @blue:                  #3498db;
 @purple:                #9b59b6;
 
+@pinterest-color:       #bd081c;
+@vurb-color:            #6475dc;
+@artsicle-color:        #38cfd6;
+@purehistory-color:     #da0000;
+@sage-color:            #ffc329;
+@watershed-color:       #81b4de;
+@dogecache-color:       #d35400;
+@cityscenes-color:      #007fff;
+@railgun-color:         #88dcac;
+@arm-color:             #b18164;
+@car-color:             #31b4ff;
+
 /* FUNCTIONS
    ========================== */
 .transition {
@@ -59,7 +71,7 @@
 }
 
 .cover-photo-gradient-color(@color) {
-    background-image: linear-gradient(120deg, darken(@color, 5%) 0%, lighten(saturate(@color, 20%), 5%) 100%);
+    background-image: linear-gradient(135deg, darken(@color, 2%) 0%, lighten(saturate(@color, 20%), 5%) 100%);
 }
 
 /* IMPORTS
@@ -185,14 +197,16 @@ body {
     padding-left: @univ-padding;
     overflow-y: scroll;
 
+    @card-width: 300px;
     .card {
         position: relative;
-        width: 300px;
+        width: @card-width;
         background-color: white;
         margin-right: @univ-padding;
         margin-bottom: @univ-padding;
         border: 1px solid @light-grey;
         font-size: @text-font-size;
+        border-radius: @univ-border-radius;
 
         @cover-photo-height: 90px;
         .cover-photo {
@@ -201,7 +215,23 @@ body {
             top: -1px;
             right: -1px;
             height: @cover-photo-height;
+            border-top-left-radius: @univ-border-radius;
+            border-top-right-radius: @univ-border-radius;
             .cover-photo-gradient-color(@purple);
+
+            &.pinterest { .cover-photo-gradient-color(@pinterest-color); }
+            &.vurb { .cover-photo-gradient-color(@vurb-color); }
+            &.artsicle { .cover-photo-gradient-color(@artsicle-color); }
+            &.purehistory { .cover-photo-gradient-color(@purehistory-color); }
+
+            &.sage { .cover-photo-gradient-color(@sage-color); }
+            &.watershed { .cover-photo-gradient-color(@watershed-color); }
+            &.dogecache { .cover-photo-gradient-color(@dogecache-color); }
+            &.cityscenes { .cover-photo-gradient-color(@cityscenes-color); }
+
+            &.railgun { .cover-photo-gradient-color(@railgun-color); }
+            &.arm { .cover-photo-gradient-color(@arm-color); }
+            &.car { .cover-photo-gradient-color(@car-color); }
         }
 
         @image-height: 60px;
@@ -210,10 +240,11 @@ body {
             width: @image-height;
             height: @image-height;
             border: 4px solid white;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-left: @tight-padding;
             margin-top: @cover-photo-height - @image-height/2;
-            background-color: @light-grey;
+            background-color: white;
+            background-size: cover;
 
             &.round {
                 border-radius: @image-height/2;
@@ -228,6 +259,7 @@ body {
                 font-size: @header-font-size;
                 font-weight: bold;
                 margin-bottom: 10px;
+                max-width: @card-width - 100px;
             }
 
             @description-line-height: 20px;
@@ -244,10 +276,41 @@ body {
                 text-overflow: ellipsis;
             }
         }
+        
+        @action-size: 30px;
+        @action-font-size: 22px;
+        @action-padding: @tight-padding - @action-size + @header-font-size;
+        @action-color: #999999;
+        .actions {
+            position: absolute;
+            top: @cover-photo-height + @action-padding;
+            right: @action-padding + 5px;
+            
+            i {
+                display: inline-block;
+                width: @action-size;
+                height: @action-size;
+                line-height: @action-size;
+                text-align: center;
+                font-size: @action-font-size;
+                color: @action-color;
 
-        &.extra .content {
-            margin-top: @cover-photo-height;
-            padding: @tight-padding;
+                &:hover {
+                    cursor: pointer;
+                    color: lighten(@action-color, 15%)
+                }
+            }
+        }
+
+        &.extra {
+            .content {
+                margin-top: @cover-photo-height;
+                padding: @tight-padding;
+            }
+
+            .actions {
+                top: @cover-photo-height + @action-padding + 8px;
+            }
         }
     }
 }

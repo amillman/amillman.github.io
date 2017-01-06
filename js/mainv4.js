@@ -2,6 +2,7 @@
 var navbarHeight = 52;
 var animationTime = 300;
 var longAnimationTime = 600;
+var springAnimationTime = 550;
 
 /* ============================== CODE =============================== */
 var themes = ['blue', 'yellow', 'purple', 'red'];
@@ -14,11 +15,15 @@ $(document).ready(function() {
         _adjustHomeCenter();
     });
 
-    $('.home-button:not(.active)').click(function() {
-        //_animateToContentMode();
+    $('.home-button:not(.active):not(.resume)').click(function() {
         $('.home-wrapper').removeClass('active');
         $('.home-button.active').removeClass('active');
         $(this).addClass('active');
+
+        var text = $(this).text();
+        setTimeout(function() {
+            _populateContent(text);
+        }, springAnimationTime + 100);
     });
 });
 
@@ -29,13 +34,24 @@ function _adjustHomeCenter() {
     }
 }
 
-// function _animateToContentMode() {
-//     var homeWrapper = $('.home-wrapper');
-//     var navVerticalMargin = (navbarHeight - $('.home-button').height()) / 2;
-//     console.log(navVerticalMargin);
-//     if (homeWrapper.hasClass('active')) {
-//         homeWrapper.animate({
-//             top: -homeWrapper.height() - navVerticalMargin
-//         }, springAnimationTime, $.bez(springCurve));
-//     }
-// }
+function _populateContent(type) {
+    var sectionWrapper = $(".section-wrapper");
+    if (type != "Resume") {
+        $.each(contentInfo[type], function(i, val) {
+            sectionWrapper.append(
+                '<div class="card ' + (type == "Extra" ? 'extra' : '' ) + '">' +
+                    '<div class="cover-photo ' + this.class + '"></div>' +
+                    (type != "Extra" ? '<div class="image ' + (this.round ? 'round' : '' ) + '" style="background-image:url(img/' + this.image + ')"></div>' : '') +
+                    '<div class="content">' +
+                        '<div class="title">' + this.title + '</div>' +
+                        '<div class="description">' + this.description + '</div>' +
+                    '</div>' +
+                    '<div class="actions">' +
+                        (this.link ? '<a href="' + this.link + '" target="_blank"><i class="icon ion-link"></i></a>' : '') +
+                        '<i class="icon ion-android-more-horizontal"></i>' +
+                    '</div>' +
+                '</div>'
+            );
+        });
+    }
+}
