@@ -15,16 +15,7 @@ $(document).ready(function() {
         _adjustHomeCenter();
     });
 
-    $('.home-button:not(.active):not(.resume)').click(function() {
-        $('.home-wrapper').removeClass('active');
-        $('.home-button.active').removeClass('active');
-        $(this).addClass('active');
-
-        var text = $(this).text();
-        setTimeout(function() {
-            _populateContent(text);
-        }, springAnimationTime + 100);
-    });
+    $('.home-button:not(.resume)').click(_homeButtonHandler);
 });
 
 function _adjustHomeCenter() {
@@ -34,12 +25,28 @@ function _adjustHomeCenter() {
     }
 }
 
+function _homeButtonHandler() {
+    console.log('a');
+    $('.home-wrapper').removeClass('active');
+    $('.home-button.active').removeClass('active');
+    $(this).addClass('active');
+    $('.home-button').unbind();
+
+    var text = $(this).text();
+    _fadeOutCurrentContent();
+    setTimeout(function() {
+        _populateContent(text);
+    }, springAnimationTime + 100);
+}
+
 function _populateContent(type) {
-    var sectionWrapper = $(".section-wrapper");
+    $("body").append('<div class="section-wrapper"></div>');
+    var sectionWrapper = $(".section-wrapper").last();
+    var lastIndex = sectionWrapper.children().length;
     if (type != "Resume") {
         $.each(contentInfo[type], function(i, val) {
             sectionWrapper.append(
-                '<div class="card ' + (type == "Extra" ? 'extra' : '' ) + '">' +
+                '<div class="hidden card ' + (type == "Extra" ? 'extra' : '' ) + '">' +
                     '<div class="cover-photo ' + this.class + '"></div>' +
                     (type != "Extra" ? '<div class="image ' + (this.round ? 'round' : '' ) + '" style="background-image:url(img/' + this.image + ')"></div>' : '') +
                     '<div class="content">' +
@@ -52,6 +59,27 @@ function _populateContent(type) {
                     '</div>' +
                 '</div>'
             );
+            setTimeout(function() {
+                sectionWrapper.children().eq(i).removeClass("hidden");
+            }, i * 100);
         });
+        setTimeout(function() {
+            $('.home-button:not(.active):not(.resume)').click(_homeButtonHandler);
+        }, lastIndex * 100);
+    }
+}
+
+function _fadeOutCurrentContent() {
+    var sectionWrapper = $(".section-wrapper").first();
+    var lastIndex = sectionWrapper.children().length;
+    if (sectionWrapper) {
+        $.each(sectionWrapper.children(), function(i, val) {
+            setTimeout(function() {
+                $(val).addClass("hidden");
+            }, i * 100);
+        });
+        setTimeout(function() {
+            sectionWrapper.remove();
+        }, lastIndex * 100);
     }
 }

@@ -118,6 +118,16 @@ body {
         top: -@home-header-height - @navbar-button-margin !important;
         padding-bottom: @navbar-button-margin;
         border-bottom: 1px solid @light-grey;
+
+        .button-group {
+            .home-button {
+                color: black;
+                width: initial;
+                background: none!important;
+                margin-left: @text-padding;
+                margin-right: @text-padding;
+            }
+        }
     }
 
     .profile-header {
@@ -154,7 +164,6 @@ body {
             height: 40px;
             line-height: 40px;
             border-radius: @univ-border-radius;
-            //font-weight: bold;
             text-transform: capitalize;
             .transition;
 
@@ -207,6 +216,11 @@ body {
         border: 1px solid @light-grey;
         font-size: @text-font-size;
         border-radius: @univ-border-radius;
+        .transition;
+
+        &.hidden {
+            opacity: 0;
+        }
 
         @cover-photo-height: 90px;
         .cover-photo {
