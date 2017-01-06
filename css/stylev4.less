@@ -124,8 +124,17 @@ body {
                 color: black;
                 width: initial;
                 background: none!important;
-                margin-left: @text-padding;
-                margin-right: @text-padding;
+                padding-left: @text-padding;
+                padding-right: @text-padding;
+                opacity: 0.5;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &.active {
+                    opacity: 1;
+                }
             }
         }
     }
@@ -154,6 +163,7 @@ body {
     }
 
     .button-group {
+        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -177,7 +187,7 @@ body {
                 opacity: 0.5;
             }
 
-            &:hover:not(.active) {
+            &:hover {
                 opacity: 0.70;
                 cursor: pointer;
             }
@@ -186,6 +196,19 @@ body {
                 margin-right: @univ-padding;
             }
         }
+    }
+    .underline {
+        width: 150px;
+        height: 4px;
+        position: absolute;
+        bottom: -1px;
+        background-color: rgba(200,200,200, 0.4);
+        .spring-transition;
+
+        &.purple { .gradient-color(@purple); }
+        &.red { .gradient-color(@red); }
+        &.blue { .gradient-color(@blue); }
+        &.yellow { .gradient-color(@yellow); }
     }
 }
 

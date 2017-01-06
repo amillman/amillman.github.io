@@ -6,9 +6,11 @@ var springAnimationTime = 550;
 
 /* ============================== CODE =============================== */
 var themes = ['blue', 'yellow', 'purple', 'red'];
+var chosenTheme = themes[0];
 
 $(document).ready(function() {
-    $('.home-button').addClass(themes[Math.floor(Math.random() * 4)]);
+    chosenTheme = themes[Math.floor(Math.random() * 4)];
+    $('.home-button').addClass(chosenTheme);
     _adjustHomeCenter();
 
     $(window).resize(function() {
@@ -23,10 +25,13 @@ function _adjustHomeCenter() {
     if (homeWrapper.hasClass('active')) {
         homeWrapper.css('top', ($('body').height() - homeWrapper.height()) / 2 - 40);
     }
+    var underline = $('.home-wrapper .underline');
+    if (underline.length) {
+        _slideUnderline();
+    }
 }
 
 function _homeButtonHandler() {
-    console.log('a');
     $('.home-wrapper').removeClass('active');
     $('.home-button.active').removeClass('active');
     $(this).addClass('active');
@@ -37,6 +42,26 @@ function _homeButtonHandler() {
     setTimeout(function() {
         _populateContent(text);
     }, springAnimationTime + 100);
+    _slideUnderline();
+}
+
+function _slideUnderline() {
+    var underline = $('.home-wrapper .underline');
+    var delay = 0;
+    if (!underline.length) {
+        $('.home-wrapper').append('<div class="underline" style="left:0px;width:0px;opacity:0;"></div>');
+        underline = $('.home-wrapper .underline');
+        underline.addClass(chosenTheme);
+        delay = springAnimationTime;
+    }
+    var activeSection = $('.home-button.active');
+    setTimeout(function() {
+        underline.css({
+            left: activeSection.position().left,
+            width: activeSection.outerWidth(),
+            opacity: 1
+        });
+    }, delay);
 }
 
 function _populateContent(type) {
