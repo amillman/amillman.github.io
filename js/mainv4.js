@@ -49,7 +49,7 @@ function _slideUnderline() {
     var underline = $('.home-wrapper .underline');
     var delay = 0;
     if (!underline.length) {
-        $('.home-wrapper').append('<div class="underline" style="left:0px;width:0px;opacity:0;"></div>');
+        $('.home-wrapper').append('<div class="underline" style="left:50%;width:0px;opacity:0;"></div>');
         underline = $('.home-wrapper .underline');
         underline.addClass(chosenTheme);
         delay = springAnimationTime;
