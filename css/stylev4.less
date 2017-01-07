@@ -23,11 +23,14 @@
 /* COLORS
    ========================== */
 @light-grey:            #e2e2e2;
+@dark-grey:             #53585f;
 @red:                   #e74c3c;
 @yellow:                #f9bf3b;
 @green:                 #2ecc71;
 @blue:                  #3498db;
 @purple:                #9b59b6;
+@grey-text:             #cccccc;
+@icon-color:            #999999;
 
 @pinterest-color:       #bd081c;
 @vurb-color:            #6475dc;
@@ -72,6 +75,11 @@
 
 .cover-photo-gradient-color(@color) {
     background-image: linear-gradient(135deg, darken(@color, 2%) 0%, lighten(saturate(@color, 20%), 5%) 100%);
+}
+
+.outline-shadow {
+    -webkit-filter: drop-shadow(0px 0px 1px #aaa);
+    filter: drop-shadow(0px 0px 1px #aaa);
 }
 
 /* IMPORTS
@@ -325,7 +333,6 @@ a {
         @action-size: 30px;
         @action-font-size: 22px;
         @action-padding: @tight-padding - @action-size + @header-font-size;
-        @action-color: #999999;
         .actions {
             position: absolute;
             top: @cover-photo-height + @action-padding;
@@ -338,11 +345,11 @@ a {
                 line-height: @action-size;
                 text-align: center;
                 font-size: @action-font-size;
-                color: @action-color;
+                color: @icon-color;
 
                 &:hover {
                     cursor: pointer;
-                    color: lighten(@action-color, 15%)
+                    color: lighten(@icon-color, 15%)
                 }
             }
         }
@@ -355,6 +362,152 @@ a {
 
             .actions {
                 top: @cover-photo-height + @action-padding + 8px;
+            }
+        }
+    }
+}
+
+@modal-width: 600px;
+@modal-padding: @univ-padding * 2;
+@modal-navbar-height: 60px;
+.modal-wrapper {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0,0,0, 0.7);
+
+    .modal {
+        position: absolute;
+        width: @modal-width;
+        top: @univ-padding;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+
+        .navbar {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: @modal-navbar-height;
+
+            > * {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: @modal-navbar-height;
+                z-index: 100;
+
+                > * {
+                    position: absolute;
+                    top: 0px;
+                    height: @modal-navbar-height;
+                    line-height: @modal-navbar-height;
+                }
+            }
+
+            i {
+                width: @modal-navbar-height;
+                height: @modal-navbar-height;
+                line-height: @modal-navbar-height;
+                text-align: center;
+
+                &:hover {
+                    opacity: 0.7;
+                    cursor: pointer;
+                }
+            }
+
+            .true-elements {
+                .cover-photo-gradient-color(@red);
+                color: white;
+                overflow: hidden;
+                height: 4px;
+            }
+
+            .pseudo-elements {
+                color: @icon-color;
+            }
+
+            .modal-link {
+                font-size: 24px;
+                left: 0px;
+            }
+
+            .modal-close {
+                font-size: 20px;
+                right: 0px;
+            }
+        }
+
+        .content {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            overflow-y: scroll;
+
+            @modal-header-padding: 100px;
+            @modal-header-height: 60px;
+            .header {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                padding-left: @modal-navbar-height;
+                padding-right: @modal-navbar-height;
+                padding-top: @modal-header-padding + @modal-navbar-height/2;
+                padding-bottom: @modal-header-padding;
+
+                .image {
+                    min-width: @modal-header-height;
+                    width: @modal-header-height;
+                    height: @modal-header-height;
+                    background-image: url("../img/artsicle.png");
+                    background-size: cover;
+                    margin-right: @univ-padding;
+                    margin-top: -2px; // Adjustment to align with text
+                    border-radius: 15px;
+                    .outline-shadow;
+
+                    .round {
+                        border-radius: @modal-header-height;
+                    }
+                }
+
+                .title-wrapper {
+                    line-height: @modal-header-height/2;
+
+                    .title {
+                        font-size: @header-font-size + 6px;
+                        color: black;
+                        font-weight: bold;
+                    }
+
+                    .slogan {
+                        font-size: @header-font-size;
+                        color: @grey-text;
+                        line-height: @modal-header-height/2 - 3px;
+                    }
+
+                }
+            }
+
+            .description {
+                padding: @modal-padding;
+                padding-top: 0px;
+                font-size: @text-font-size;
+                line-height: @text-font-size + 6px;
+                padding-bottom: 500px;
+            }
+
+            .bottom-image {
+
             }
         }
     }

@@ -3,6 +3,8 @@ var navbarHeight = 52;
 var animationTime = 300;
 var longAnimationTime = 600;
 var springAnimationTime = 550;
+var modalInitialNavbarHeight = 4;
+var modalScrollThreshold = 100 + 60;
 
 /* ============================== CODE =============================== */
 var themes = ['blue', 'yellow', 'purple', 'red'];
@@ -18,6 +20,8 @@ $(document).ready(function() {
     });
 
     $('.home-button:not(.resume)').click(_homeButtonHandler);
+
+    $('.modal .content').scroll(_modalScrollHandler);
 });
 
 function _adjustHomeCenter() {
@@ -107,4 +111,9 @@ function _fadeOutCurrentContent() {
             sectionWrapper.remove();
         }, lastIndex * 100);
     }
+}
+
+function _modalScrollHandler() {
+    var modalContent = $('.modal .content');
+
 }
