@@ -82,6 +82,29 @@
     filter: drop-shadow(0px 0px 1px #aaa);
 }
 
+.site-themed {
+    &.purple { .gradient-color(@purple); }
+    &.red { .gradient-color(@red); }
+    &.blue { .gradient-color(@blue); }
+    &.yellow { .gradient-color(@yellow); }
+}
+
+.content-themed {
+    &.pinterest { .cover-photo-gradient-color(@pinterest-color); }
+    &.vurb { .cover-photo-gradient-color(@vurb-color); }
+    &.artsicle { .cover-photo-gradient-color(@artsicle-color); }
+    &.purehistory { .cover-photo-gradient-color(@purehistory-color); }
+
+    &.sage { .cover-photo-gradient-color(@sage-color); }
+    &.watershed { .cover-photo-gradient-color(@watershed-color); }
+    &.dogecache { .cover-photo-gradient-color(@dogecache-color); }
+    &.cityscenes { .cover-photo-gradient-color(@cityscenes-color); }
+
+    &.railgun { .cover-photo-gradient-color(@railgun-color); }
+    &.arm { .cover-photo-gradient-color(@arm-color); }
+    &.car { .cover-photo-gradient-color(@car-color); }
+}
+
 /* IMPORTS
    ========================== */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
@@ -192,11 +215,7 @@ a {
             border-radius: @univ-border-radius;
             text-transform: capitalize;
             .transition;
-
-            &.purple { .gradient-color(@purple); }
-            &.red { .gradient-color(@red); }
-            &.blue { .gradient-color(@blue); }
-            &.yellow { .gradient-color(@yellow); }
+            .site-themed;
 
 
             &.active {
@@ -220,11 +239,7 @@ a {
         bottom: -1px;
         background-color: rgba(200,200,200, 0.4);
         .spring-transition;
-
-        &.purple { .gradient-color(@purple); }
-        &.red { .gradient-color(@red); }
-        &.blue { .gradient-color(@blue); }
-        &.yellow { .gradient-color(@yellow); }
+        .site-themed;
     }
 }
 
@@ -271,20 +286,8 @@ a {
             border-top-left-radius: @univ-border-radius;
             border-top-right-radius: @univ-border-radius;
             .cover-photo-gradient-color(@purple);
+            .content-themed;
 
-            &.pinterest { .cover-photo-gradient-color(@pinterest-color); }
-            &.vurb { .cover-photo-gradient-color(@vurb-color); }
-            &.artsicle { .cover-photo-gradient-color(@artsicle-color); }
-            &.purehistory { .cover-photo-gradient-color(@purehistory-color); }
-
-            &.sage { .cover-photo-gradient-color(@sage-color); }
-            &.watershed { .cover-photo-gradient-color(@watershed-color); }
-            &.dogecache { .cover-photo-gradient-color(@dogecache-color); }
-            &.cityscenes { .cover-photo-gradient-color(@cityscenes-color); }
-
-            &.railgun { .cover-photo-gradient-color(@railgun-color); }
-            &.arm { .cover-photo-gradient-color(@arm-color); }
-            &.car { .cover-photo-gradient-color(@car-color); }
         }
 
         @image-height: 60px;
@@ -408,6 +411,7 @@ a {
                     top: 0px;
                     height: @modal-navbar-height;
                     line-height: @modal-navbar-height;
+                    text-align: center;
                 }
             }
 
@@ -415,7 +419,7 @@ a {
                 width: @modal-navbar-height;
                 height: @modal-navbar-height;
                 line-height: @modal-navbar-height;
-                text-align: center;
+                z-index: 100;
 
                 &:hover {
                     opacity: 0.7;
@@ -424,10 +428,21 @@ a {
             }
 
             .true-elements {
-                .cover-photo-gradient-color(@red);
                 color: white;
                 overflow: hidden;
-                height: 4px;
+                height: @modal-navbar-height;
+                .spring-transition;
+                .content-themed;
+
+                &.hidden {
+                    height: 4px;
+                }
+    
+                .modal-title {
+                    left: 0px;
+                    width: 100%;
+                    z-index: 1;
+                }
             }
 
             .pseudo-elements {

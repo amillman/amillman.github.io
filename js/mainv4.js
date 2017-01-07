@@ -3,8 +3,7 @@ var navbarHeight = 52;
 var animationTime = 300;
 var longAnimationTime = 600;
 var springAnimationTime = 550;
-var modalInitialNavbarHeight = 4;
-var modalScrollThreshold = 100 + 60;
+var modalScrollThreshold = 160;
 
 /* ============================== CODE =============================== */
 var themes = ['blue', 'yellow', 'purple', 'red'];
@@ -115,5 +114,10 @@ function _fadeOutCurrentContent() {
 
 function _modalScrollHandler() {
     var modalContent = $('.modal .content');
-
+    var modalTrueNavbar = $('.modal .navbar .true-elements')
+    if (modalContent.scrollTop() < modalScrollThreshold) {
+        modalTrueNavbar.addClass('hidden');
+    } else {
+        modalTrueNavbar.removeClass('hidden');
+   }
 }
