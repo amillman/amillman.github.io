@@ -27,7 +27,8 @@ $(document).ready(function() {
 
 function _enableNightMode() {
     var now = new Date();
-    if (now.getHours() >= 18) {
+    var hour = now.getHours();
+    if (hour < 6 || hour >= 18) {
         $('body').addClass('night');
     }
 
