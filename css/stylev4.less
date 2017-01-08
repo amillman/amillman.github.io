@@ -78,8 +78,8 @@
 }
 
 .outline-shadow {
-    -webkit-filter: drop-shadow(0px 0px 1px #aaa);
-    filter: drop-shadow(0px 0px 1px #aaa);
+    -webkit-filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.3));
+    filter: drop-shadow(0px 0px 1px rgba(0,0,0,0.3));
 }
 
 .site-themed {
@@ -134,6 +134,7 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    .transition;
 }
 
 a {
@@ -186,6 +187,7 @@ a {
         justify-content: center;
         color: black;
         height: 50px;
+        .transition;
 
         .profile-pic {
             width: 50px;
@@ -209,7 +211,6 @@ a {
         justify-content: center;
 
         .home-button {
-            background-color: rgba(200,200,200, 0.4);
             width: 150px;
             height: 40px;
             line-height: 40px;
@@ -302,6 +303,7 @@ a {
             margin-top: @cover-photo-height - @image-height/2;
             background-color: white;
             background-size: cover;
+            .transition;
 
             &.round {
                 border-radius: @image-height/2;
@@ -651,6 +653,7 @@ a {
         right: @dropdown-triangle-right;
         border-style: solid;
         border-width: @dropdown-triangle-width;
+        .spring-transition;
     }
 
     &:before {
@@ -684,5 +687,133 @@ a {
             line-height: @dropdown-line-height;
             font-size: 25px;
         }
+    }
+}
+
+/* NIGHT THEME
+   ========================== */
+@night-background-color: #2c3e50;
+@night-text-color: white;
+@night-secondary-text-color: #c0c5cb;
+@night-icon-color: @night-secondary-text-color;
+@night-border-color: darken(@night-background-color, 7%);
+
+@night-mode-toggler-size: 6px;
+@night-mode-toggler-margin: 6px;
+.night-mode-toggler {
+
+    position: fixed;
+    left: @night-mode-toggler-margin;
+    top: @night-mode-toggler-margin;
+    width: @night-mode-toggler-size;
+    height: @night-mode-toggler-size;
+    border-radius: @night-mode-toggler-size/2;
+    background-color: @night-background-color;
+    z-index: 10000;
+
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+}
+
+body.night {
+    background-color: @night-background-color;
+
+    .home-wrapper {
+
+        &:not(.active) {
+            border-color: @night-border-color;
+
+            .button-group .home-button {
+                color: @night-text-color;
+            }
+        }
+
+        .profile-header {
+            color: @night-text-color;
+        }
+    }
+
+    .dropdown-icon {
+        color: @night-text-color;
+    }
+
+    .section-wrapper {
+        .card {
+            background-color: @night-background-color;
+            color: @night-secondary-text-color;
+            border-color: @night-border-color;
+
+            .image {
+                background-color: @night-background-color;
+                border-color: @night-background-color;
+            }
+
+            .content {
+                .title {
+                    color: @night-text-color;
+                }
+            }
+
+            .actions {
+                i {
+                    color: @night-icon-color;
+                }
+            }
+        }
+    }
+
+    .modal-wrapper {
+
+        .modal {
+            background-color: @night-background-color;
+
+            .navbar {
+                .pseudo-elements {
+                    color: @night-icon-color;
+                }
+            }
+
+            .content {
+                .header {
+                    .title-wrapper {
+                        .title {
+                            color: @night-text-color;
+                        }
+
+                        .slogan {
+                            color: @night-secondary-text-color;
+                        }
+                    }
+                }
+
+                .description {
+                    color: @night-secondary-text-color;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        background-color: @night-background-color;
+        color: @night-text-color;
+        border-color: @night-border-color;
+
+        &:before {
+            border-color: transparent transparent @night-border-color transparent;
+        }
+
+        &:after {
+            border-color: transparent transparent @night-background-color transparent;
+        }
+
+        a:hover {
+            background-color: rgba(31, 44, 57, 0.7);
+        }
+    }
+
+    .night-mode-toggler {
+        background-color: white;
     }
 }

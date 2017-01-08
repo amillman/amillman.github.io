@@ -10,6 +10,8 @@ var themes = ['blue', 'yellow', 'purple', 'red'];
 var chosenTheme = themes[0];
 
 $(document).ready(function() {
+    _enableNightMode();
+
     chosenTheme = themes[Math.floor(Math.random() * 4)];
     $('.home-button').addClass(chosenTheme);
     _adjustHomeCenter();
@@ -22,6 +24,17 @@ $(document).ready(function() {
 
     $('.dropdown-icon, .dropdown-overlay').click(_dropdownHandler);
 });
+
+function _enableNightMode() {
+    var now = new Date();
+    if (now.getHours() >= 18) {
+        $('body').addClass('night');
+    }
+
+    $('.night-mode-toggler').click(function() {
+        $('body').toggleClass('night');
+    });
+}
 
 function _adjustHomeCenter() {
     var homeWrapper = $('.home-wrapper');
