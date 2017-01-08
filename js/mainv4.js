@@ -19,8 +19,6 @@ $(document).ready(function() {
     });
 
     $('.home-button:not(.resume)').click(_homeButtonHandler);
-
-    $('.modal .content').scroll(_modalScrollHandler);
 });
 
 function _adjustHomeCenter() {
@@ -73,24 +71,42 @@ function _populateContent(type) {
     var lastIndex = sectionWrapper.children().length;
     if (type != "Resume") {
         $.each(contentInfo[type], function(i, val) {
+            var dataJSON = this;
             sectionWrapper.append(
                 '<div class="hidden card ' + (type == "Extra" ? 'extra' : '' ) + '">' +
-                    '<div class="cover-photo ' + this.class + '"></div>' +
-                    (type != "Extra" ? '<div class="image ' + (this.round ? 'round' : '' ) + '" style="background-image:url(img/' + this.image + ')"></div>' : '') +
+                    '<div class="cover-photo ' + dataJSON.class + '"></div>' +
+                    (type != "Extra" ? '<div class="image ' + (dataJSON.round ? 'round' : '' ) + '" style="background-image:url(img/' + dataJSON.image + ')"></div>' : '') +
                     '<div class="content">' +
-                        '<div class="title">' + this.title + '</div>' +
-                        '<div class="description">' + this.description + '</div>' +
+                        '<div class="title">' + dataJSON.title + '</div>' +
+                        '<div class="description">' + dataJSON.description + '</div>' +
                     '</div>' +
                     '<div class="actions">' +
-                        (this.link ? '<a href="' + this.link + '" target="_blank"><i class="icon ion-link"></i></a>' : '') +
-                        '<i class="icon ion-android-more-horizontal"></i>' +
+                        (dataJSON.link ? '<a href="' + dataJSON.link + '" target="_blank"><i class="icon ion-link"></i></a>' : '') +
+                        '<i class="icon ion-android-more-horizontal modal-open"></i>' +
                     '</div>' +
                 '</div>'
             );
             setTimeout(function() {
-                sectionWrapper.children().eq(i).removeClass("hidden");
+                var newCard = sectionWrapper.children().eq(i);
+                newCard.removeClass("hidden");
+                newCard.find('.modal-open').data('contentType', type);
+                newCard.find('.modal-open').data('title', dataJSON.title);
             }, i * 100);
         });
+        $('.card .actions .modal-open').click(function() {
+            var type = $(this).data('contentType');
+            var title = $(this).data('title');
+            var dataJSON = null;
+            $.each(contentInfo[type], function(i, val) {
+                if (this.title == title) {
+                    dataJSON = this;
+                    return false;
+                }
+            });
+            console.log(dataJSON);
+            _showModal(dataJSON);
+        });
+
         setTimeout(function() {
             $('.home-button:not(.active):not(.resume)').click(_homeButtonHandler);
         }, lastIndex * 100);
@@ -120,4 +136,49 @@ function _modalScrollHandler() {
     } else {
         modalTrueNavbar.removeClass('hidden');
    }
+}
+
+function _showModal(dataJSON) {
+    $('body').append(_generateModalHTML(dataJSON));
+    var modalWrapper = $('.modal-wrapper');
+    setTimeout(function() {
+        modalWrapper.removeClass('hidden');
+    }, 50);
+    
+    $('.modal .content').scroll(_modalScrollHandler);
+    $('.modal-background, .modal .modal-close').click( function() {
+        modalWrapper.addClass('hidden');
+        setTimeout(function() {
+            modalWrapper.remove();
+        }, longAnimationTime);
+    });
+}
+
+function _generateModalHTML(dataJSON) {
+    return '<div class="modal-wrapper hidden">' +
+        '<div class="modal-background"></div>' +
+        '<div class="modal">' +
+            '<div class="navbar">' +
+                '<div class="pseudo-elements">' +
+                    (dataJSON.link ? '<a href="' + dataJSON.link + '" target="_blank"><i class="modal-link icon ion-link"></i></a>' : '') +
+                    '<i class="modal-close icon ion-close-round"></i>' +
+                '</div>' +
+                '<div class="true-elements hidden ' + dataJSON.class + '">' +
+                    (dataJSON.link ? '<a href="' + dataJSON.link + '" target="_blank"><i class="modal-link icon ion-link"></i></a>' : '') +
+                    '<div class="modal-title">' + dataJSON.title + '</div>' +
+                    '<i class="modal-close icon ion-close-round"></i>' +
+                '</div>' +
+            '</div>' +
+            '<div class="content">' +
+                '<div class="header">' +
+                    '<div class="image ' + (dataJSON.round ? 'round' : '' ) + '" style="background-image:url(img/' + dataJSON.image + ')"></div>' +
+                    '<div class="title-wrapper">' +
+                        '<div class="title">' + dataJSON.title + '</div>' +
+                        '<div class="slogan">' + dataJSON.slogan + '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="description">' + dataJSON.description + '</div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
 }
