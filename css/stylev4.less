@@ -574,3 +574,115 @@ a {
         }
     }
 }
+
+.dropdown-icon {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    z-index: 50;
+
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    &.active {
+        opacity: 0.3;
+    }
+
+    i {
+        display: block;
+        width: @navbar-height;
+        height: @navbar-height;
+        line-height: @navbar-height;
+        text-align: center;
+        font-size: 28px;
+    }
+}
+
+.dropdown-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 75;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@dropdown-line-height: 25px;
+@dropdown-padding: 7px;
+@dropdown-scale: 0.3;
+@dropdown-translation: 100px, -100px;
+.dropdown {
+    position: fixed;
+    right: 5px;
+    top: @navbar-height + 5px;
+    border: 1px solid @light-grey;
+    padding-top: @dropdown-padding;
+    padding-bottom: @dropdown-padding;
+    background-color: white;
+    z-index: 100;
+    .spring-transition;
+
+    &.hidden {
+        opacity: 0px;
+
+        -ms-transform: translate(@dropdown-translation) scale(@dropdown-scale, @dropdown-scale);
+        -webkit-transform: translate(@dropdown-translation) scale(@dropdown-scale, @dropdown-scale);
+        transform: translate(@dropdown-translation) scale(@dropdown-scale, @dropdown-scale);
+    }
+
+    &.no-display {
+        display: none;
+    }
+
+    @dropdown-triangle-width: 14px;
+    @dropdown-triangle-right: 6px;
+    &:after,
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        right: @dropdown-triangle-right;
+        border-style: solid;
+        border-width: @dropdown-triangle-width;
+    }
+
+    &:before {
+        top: -@dropdown-triangle-width*2;
+        border-color: transparent transparent @light-grey transparent;
+        
+    }
+
+    &:after {
+        top: -@dropdown-triangle-width*2 + 1px;
+        border-color: transparent transparent white transparent;
+    }
+
+    a {
+        display: block;
+        font-size: @text-font-size;
+        padding: @univ-padding;
+        line-height: @dropdown-line-height;
+        padding-left: @dropdown-line-height + 2 * @univ-padding - 5px;
+
+        &:hover {
+            background-color: lighten(@light-grey, 5%);
+        }
+
+        i {
+            position: absolute;
+            left: @tight-padding;
+            width: @dropdown-line-height;
+            height: @dropdown-line-height;
+            text-align: center;
+            line-height: @dropdown-line-height;
+            font-size: 25px;
+        }
+    }
+}

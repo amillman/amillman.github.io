@@ -19,6 +19,8 @@ $(document).ready(function() {
     });
 
     $('.home-button:not(.resume)').click(_homeButtonHandler);
+
+    $('.dropdown-icon, .dropdown-overlay').click(_dropdownHandler);
 });
 
 function _adjustHomeCenter() {
@@ -63,6 +65,18 @@ function _slideUnderline() {
             opacity: 1
         });
     }, delay);
+}
+
+function _dropdownHandler() {
+    $('.dropdown-icon').toggleClass('active');
+    var dropdown = $('.dropdown');
+    if (!dropdown.hasClass('hidden')) {
+        setTimeout(function(){ dropdown.addClass('no-display')}, springAnimationTime);
+    } else {
+        dropdown.removeClass('no-display');
+    }
+    setTimeout(function(){ dropdown.toggleClass('hidden')}, 50);
+    $('.dropdown-overlay').toggleClass('hidden');
 }
 
 function _populateContent(type) {
