@@ -693,6 +693,7 @@ a {
 /* NIGHT THEME
    ========================== */
 @night-background-color: #2c3e50;
+@night-secondary-background-color: darken(@night-background-color, 5%);
 @night-text-color: white;
 @night-secondary-text-color: #c0c5cb;
 @night-icon-color: @night-secondary-text-color;
@@ -741,13 +742,13 @@ body.night {
 
     .section-wrapper {
         .card {
-            background-color: @night-background-color;
+            background-color: @night-secondary-background-color;
             color: @night-secondary-text-color;
             border-color: @night-border-color;
 
             .image {
-                background-color: @night-background-color;
-                border-color: @night-background-color;
+                background-color: @night-secondary-background-color;
+                border-color: @night-secondary-background-color;
             }
 
             .content {
@@ -796,7 +797,7 @@ body.night {
     }
 
     .dropdown {
-        background-color: @night-background-color;
+        background-color: @night-secondary-background-color;
         color: @night-text-color;
         border-color: @night-border-color;
 
@@ -805,11 +806,11 @@ body.night {
         }
 
         &:after {
-            border-color: transparent transparent @night-background-color transparent;
+            border-color: transparent transparent @night-secondary-background-color transparent;
         }
 
         a:hover {
-            background-color: rgba(31, 44, 57, 0.7);
+            background-color: darken(@night-secondary-background-color, 4%);
         }
     }
 
