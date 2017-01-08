@@ -552,15 +552,24 @@ a {
             }
 
             .description {
-                padding: @modal-padding;
-                padding-top: 0px;
+                padding-left: @modal-padding;
+                padding-right: @modal-padding;
                 font-size: @text-font-size;
                 line-height: @text-font-size + 6px;
-                padding-bottom: 500px;
             }
 
+            @image-vertical-padding: 70px;
+            @image-max-width: 100%;
+            @image-max-height: 400px;
             .bottom-image {
-
+                margin-top: @image-vertical-padding;
+                margin-bottom: @image-vertical-padding;
+                width: @image-max-width;
+                height: @image-max-height;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                .outline-shadow;
             }
         }
     }

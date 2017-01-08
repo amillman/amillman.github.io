@@ -178,6 +178,7 @@ function _generateModalHTML(dataJSON) {
                     '</div>' +
                 '</div>' +
                 '<div class="description">' + dataJSON.description + '</div>' +
+                (dataJSON.pictures ? '<div class="bottom-image" ' + (dataJSON.pictures ? 'style="background-image:url(img/' + dataJSON.pictures + ')"' : '') + '></div>' : '') +
             '</div>' +
         '</div>' +
     '</div>';
