@@ -1,6 +1,14 @@
 var contentInfo = {
     'Experience': [
         {
+            'title': 'Twitch',
+            'image': 'twitch.png',
+            'slogan': 'The world\'s leading video platform and community for gamers',
+            'description': 'I will be a part of Twitch\'s iOS/mobile team in Summer 2017 as an intern.',
+            'link': 'https://www.twitch.tv/',
+            'class': 'twitch',
+        },
+        {
             'title': 'Pinterest',
             'image': 'pinterest.png',
             'slogan': 'The world\'s catalog of ideas',
